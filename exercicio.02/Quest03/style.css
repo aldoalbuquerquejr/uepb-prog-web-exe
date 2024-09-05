@@ -1,0 +1,44 @@
+/*
+    // CSS Grid é ideal para layouts complexos e bidimensionais:
+        -  Ideal para layouts de páginas inteiras, com seções organizadas em linhas e colunas;
+        -  Para se ter controle completo sobre a posição de cada elemento em um layout bidimensional.
+    
+    //Flexbox é melhor para layouts simples e unidimensionais:
+        -  Ideal para alinhar itens em uma única linha ou coluna, como barra de navegação ou grupo de botões.
+        -  Quando se quer que os elementos se alinhem e distribuam o espaço automaticamente ao longo de uma única direção.
+        -  Quando o foco é em layouts que crescem ou encolhem com base no tamanho do conteúdo ou do contêiner.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(40, 30, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    width: 90%;
+    height: 60%;
+}
+
+.bar {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(100, 33, 126, 0.8);
+    background-color: rgb(100, 33, 126);
+    color: white;
+    border-radius: 5px;
+}
