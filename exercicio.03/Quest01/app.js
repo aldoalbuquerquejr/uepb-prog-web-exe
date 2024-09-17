@@ -4,7 +4,7 @@ const logradouro = document.querySelector('.logradouro');
 const bairro = document.querySelector('.bairro');
 const cidade = document.querySelector('.cidade');
 const uf = document.querySelector('.uf');
-const cepResposta = document.querySelector('.cepResposta');
+const mensagemErro = document.querySelector('.mensagemErro');
 
 button.addEventListener('click', async () => {
     try {
@@ -16,7 +16,13 @@ button.addEventListener('click', async () => {
         bairro.innerHTML = data.bairro;
         cidade.innerHTML = data.localidade;
         uf.innerHTML = data.uf;
+        mensagemErro.innerHTML = '';
     } catch (erro) {
-        cepResposta.innerHTML = 'VALOR DE CEP INVÁLIDO! RECARREGUE A PÁGINA!';
+        cep.innerHTML = '';
+        logradouro.innerHTML = '';
+        bairro.innerHTML = '';
+        cidade.innerHTML = '';
+        uf.innerHTML = '';
+        mensagemErro.innerHTML = 'CEP INVÁLIDO!';
     }
 });
