@@ -5,10 +5,20 @@ const bairro = document.querySelector('.bairro');
 const cidade = document.querySelector('.cidade');
 const uf = document.querySelector('.uf');
 const mensagemErro = document.querySelector('.mensagemErro');
+const cepRequisicao = document.querySelector('.cepRequisicao');
+
+cepRequisicao.addEventListener('input', function () {
+    let valor = cepRequisicao.value;
+    valor = valor.replace(/\D/g, ''); // Remove todos os caracteres que não são números
+    if (valor.length > 5) { // Formata o valor como CEP
+        valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
+    }
+    cepRequisicao.value = valor; // Atualiza o campo de entrada com o valor formatado
+});
 
 button.addEventListener('click', async () => {
     try {
-        const cepRequisicao = document.querySelector('.cepRequisicao').value;
+        let cepRequisicao = document.querySelector('.cepRequisicao').value;
         const response = await fetch(`https://viacep.com.br/ws/${cepRequisicao}/json/`);
         const data = await response.json();
         cep.innerHTML = data.cep;
