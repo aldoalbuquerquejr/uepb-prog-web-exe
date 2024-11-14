@@ -1,7 +1,10 @@
 // const { request, response } = require('express');
 const app = require('./app');
 const port = 3333;
+const cors = require('cors');
 // const { v4: uuidv4 } = require('uuid');
+
+app.use(cors());
 
 app.listen(port, () => {
     console.log(`Server ON! Running at http://localhost:${port}`);
